@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body>
+  <h2>Example Form</h2>
+  <form method="post" action="">
+      {% csrf_token %}
+      
+      <!-- CharField -->
+      <label for="{{ form.name.id_for_label }}">Name:</label>
+      {{ form.name }}
+
+      <br>
+
+      <!-- CharField with Textarea widget -->
+      <label for="{{ form.comment_textarea.id_for_label }}">Comment (Textarea):</label>
+      {{ form.comment_textarea }}
+
+      <br>
+
+      <!-- CharField with Textarea widget attribute -->
+      <label for="{{ form.comment_textarea_attr.id_for_label }}">Comment (Textarea with rows):</label>
+      {{ form.comment_textarea_attr }}
+
+      <br>
+
+      <!-- EmailField -->
+      <label for="{{ form.email.id_for_label }}">Email:</label>
+      {{ form.email }}
+
+      <br>
+
+      <!-- BooleanField -->
+      <label for="{{ form.agree.id_for_label }}">Agree:</label>
+      {{ form.agree }}
+
+      <br>
+
+      <!-- DateField -->
+      <label for="{{ form.date.id_for_label }}">Date:</label>
+      {{ form.date }}
+
+      <br>
+
+      <!-- DateField with NumberInput widget attribute -->
+      <label for="{{ form.birth_date.id_for_label }}">Birth Date (NumberInput):</label>
+      {{ form.birth_date }}
+
+      <br>
+
+      <!-- DateField with SelectDateWidget widget -->
+      <label for="{{ form.birth_date_select.id_for_label }}">Birth Date (SelectDateWidget):</label>
+      {{ form.birth_date_select }}
+
+      <br>
+
+      <!-- DecimalField -->
+      <label for="{{ form.value.id_for_label }}">Value (DecimalField):</label>
+      {{ form.value }}
+
+      <br>
+
+      <!-- Core Arguments -->
+      <!-- max_length and min_length -->
+      <label for="{{ form.message.id_for_label }}">Message (max_length and min_length):</label>
+      {{ form.message }}
+
+      <br>
+
+      <!-- label (String) -->
+      <label for="{{ form.custom_label.id_for_label }}">Custom Email Label:</label>
+      {{ form.custom_label }}
+
+      <br>
+
+      <!-- initial (String) for CharField() -->
+      <label for="{{ form.first_name.id_for_label }}">First Name (initial):</label>
+      {{ form.first_name }}
+
+      <br>
+
+      <!-- initial (Boolean) for BooleanField() -->
+      <label for="{{ form.agree.id_for_label }}">Agree (initial=True):</label>
+      {{ form.agree }}
+
+      <br>
+
+      <!-- initial (Datetime) for DateField() -->
+      <label for="{{ form.day.id_for_label }}">Day (initial=datetime):</label>
+      {{ form.day }}
+
+      <br>
+
+      <!-- ChoiceField -->
+      <label for="{{ form.favorite_color.id_for_label }}">Favorite Color:</label>
+      {{ form.favorite_color }}
+
+      <br>
+
+      <!-- MultipleChoiceField -->
+      <label for="{{ form.favorite_colors.id_for_label }}">Favorite Colors:</label>
+      {{ form.favorite_colors }}
+
+
+      <button type="submit">Submit</button>
+  </form>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+</body>
+
+</html>
