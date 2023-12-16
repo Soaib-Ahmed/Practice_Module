@@ -1,0 +1,6 @@
+<h2>Musician List</h2>
+<ul>
+    {% for musician in object_list %}
+        <li>{{ musician.name }} - <a href="{% url 'edit-musician' pk=musician.pk %}">Edit</a> | <a href="{% url 'delete-musician' pk=musician.pk %}">Delete</a></li>
+    {% endfor %}
+</ul>
